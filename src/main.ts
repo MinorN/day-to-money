@@ -1,5 +1,20 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import { App2 } from './App2'
+import { App } from './App'
+import { Bar } from './views/Bar'
+import { Foo } from './views/Foo'
+import { createRouter, createWebHistory } from 'vue-router'
 
-createApp(App2).mount('#app')
+
+const routes = [
+    { path: '/', component: Foo },
+    { path: '/bar', component: Bar },
+]
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+})
+const app = createApp(App)
+
+app.use(router)
+app.mount('#app')
