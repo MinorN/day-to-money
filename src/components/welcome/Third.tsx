@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import s from './First.module.scss';
+import s from './WelcomeLayout.module.scss';
 import sheet from '../../assets/icons/sheet.svg';
 import { RouterLink } from 'vue-router';
 import { WelcomeLayout } from './WelcomeLayout';
