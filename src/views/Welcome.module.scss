@@ -2,6 +2,9 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background: rgb(185, 42, 232);
+    background: linear-gradient(180deg, rgba(185, 42, 232, 1) 9%, rgba(153, 103, 231, 0.9451147151898734) 82%);
+
 
     >header {
         flex-shrink: 0;
@@ -9,10 +12,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding-top: 40px;
+        color: #D4D4EE;
     }
 
     >main {
         flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
 
     >footer {
