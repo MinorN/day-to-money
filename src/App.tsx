@@ -1,11 +1,12 @@
-import { defineComponent } from 'vue';
-import { RouterView } from 'vue-router';
+import { defineComponent, Transition, VNode } from 'vue';
+import { RouteLocationNormalizedLoaded, RouterView } from 'vue-router';
 import './App.scss';
+
 export const App = defineComponent({
-  setup: (props, context) => {
+  setup() {
     return () => (
-      <div>
-        <RouterView></RouterView>
+      <div class="page">
+        <RouterView />
       </div>
     );
   },
