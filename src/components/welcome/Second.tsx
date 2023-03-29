@@ -3,7 +3,7 @@ import { defineComponent, FunctionalComponent } from 'vue';
 
 export const Second = defineComponent({
   setup() {
-    return (
+    return () => (
       <div class={s.card}>
         <svg>
           <use xlinkHref="#clock"></use>
