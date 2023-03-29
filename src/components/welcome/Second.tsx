@@ -1,5 +1,5 @@
 import s from './welcome.module.scss';
-import { defineComponent, FunctionalComponent } from 'vue';
+import { defineComponent } from 'vue';
 
 export const Second = defineComponent({
   setup() {
