@@ -8,6 +8,12 @@ import {
 import { useSwipe } from '../hooks/useSwipe';
 import { useThrottle } from '../hooks/useThrottle';
 import s from './Welcome.module.scss';
+const pushMap: Record<string, string> = {
+  Welcome1: 'Welcome2',
+  Welcome2: 'Welcome3',
+  Welcome3: 'Welcome4',
+  Welcome4: 'start',
+};
 export const Welcome = defineComponent({
   setup: (props, context) => {
     const main = ref<HTMLElement>();
@@ -16,16 +22,10 @@ export const Welcome = defineComponent({
     });
     const route = useRoute();
     const router = useRouter();
+
     const push = useThrottle(() => {
-      if (route.name === 'Welcome1') {
-        router.push({ name: 'Welcome2' });
-      } else if (route.name === 'Welcome2') {
-        router.push({ name: 'Welcome3' });
-      } else if (route.name === 'Welcome3') {
-        router.push({ name: 'Welcome4' });
-      } else if (route.name === 'Welcome4') {
-        router.push({ name: 'start' });
-      }
+      const name = (route.name || 'Welcome1').toString();
+      router.push({ name: pushMap[name] });
     }, 500);
     watchEffect(() => {
       if (swiping.value && direction.value === 'left') {
