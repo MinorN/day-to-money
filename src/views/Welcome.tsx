@@ -8,6 +8,7 @@ import {
 import { useSwipe } from '../hooks/useSwipe';
 import { useThrottle } from '../hooks/useThrottle';
 import s from './Welcome.module.scss';
+// 静态内容，只需要声明一次，不需要在内部重复声明
 const pushMap: Record<string, string> = {
   Welcome1: 'Welcome2',
   Welcome2: 'Welcome3',
