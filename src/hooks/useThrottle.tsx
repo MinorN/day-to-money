@@ -1,13 +1,18 @@
-export const useThrottle = (fn: Function, time: number) => {
+export const useThrottle = <T extends (...args: any[]) => any>(
+  fn: T,
+  time: number
+) => {
   let timer: number | null = null;
-  return (...args: any[]) => {
+  let result: ReturnType<T>;
+  return (...args: Parameters<T>) => {
     if (timer) {
-      return;
+      return result;
     } else {
-      fn(...args);
+      result = fn(...args);
       timer = setTimeout(() => {
         timer = null;
       }, time);
+      return result;
     }
   };
 };
