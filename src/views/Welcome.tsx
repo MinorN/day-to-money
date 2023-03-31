@@ -10,9 +10,9 @@ import { useThrottle } from '../hooks/useThrottle';
 import s from './Welcome.module.scss';
 // 静态内容，只需要声明一次，不需要在内部重复声明
 const pushMap: Record<string, string> = {
-  Welcome1: '/Welcome/2',
-  Welcome2: '/Welcome/3',
-  Welcome3: '/Welcome/4',
+  Welcome1: 'Welcome2',
+  Welcome2: 'Welcome3',
+  Welcome3: 'Welcome4',
   Welcome4: '/start',
 };
 export const Welcome = defineComponent({
