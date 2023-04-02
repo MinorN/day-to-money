@@ -3,6 +3,7 @@ import s from './ItemCreate.module.scss';
 import { MainLayout } from '../../layouts/MainLayout';
 import { Icon } from '../../shared/Icon';
 import { Tab, Tabs } from '../../shared/Tabs';
+import { InputPad } from './InputPad';
 export const ItemCreate = defineComponent({
   setup: (props, context) => {
     const refKind = ref('支出');
@@ -11,13 +12,16 @@ export const ItemCreate = defineComponent({
         <MainLayout>
           {{
             title: () => '记一笔',
-            icon: () => <Icon name="back" class={s.navIcon} />,
+            icon: () => <Icon name="back" />,
             default: () => (
               <>
                 <Tabs v-model:selected={refKind.value}>
                   <Tab name="支出">icon 列表1</Tab>
                   <Tab name="收入">icon 列表2</Tab>
                 </Tabs>
+                <div class={s.inputPad_wrapper}>
+                  <InputPad />
+                </div>
               </>
             ),
           }}
