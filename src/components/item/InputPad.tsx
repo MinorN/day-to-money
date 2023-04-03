@@ -74,7 +74,7 @@ export const InputPad = defineComponent({
     const now = new Date();
     const refDate = ref();
     const refShowPop = ref(false);
-
+    refDate.value = time(now).format().split('-');
     const date = ref<Date>();
     const onConfirm = () => {
       refShowPop.value = false;
@@ -94,6 +94,7 @@ export const InputPad = defineComponent({
                   v-model={refDate.value}
                   title="选择日期"
                   onConfirm={onConfirm}
+                  onCancel={() => (refShowPop.value = false)}
                 />
               </Popup>
             </span>
