@@ -10,12 +10,12 @@ export const time = (date = new Date()) => {
             const second = date.getSeconds()
             const millisecond = date.getMilliseconds()
             return pattern.replace(/YYYY/g, year.toString())
-                .replace(/MM/g, month.toString().padStart(2, '0'))
-                .replace(/DD/g, day.toString().padStart(2, '0'))
-                .replace(/HH/g, hour.toString().padStart(2, '0'))
-                .replace(/mm/g, minute.toString().padStart(2, '0'))
-                .replace(/ss/g, second.toString().padStart(2, '0'))
-                .replace(/SSS/g, millisecond.toString().padStart(3, '0'))
+                .replace(/MM/, month.toString().padStart(2, '0'))
+                .replace(/DD/, day.toString().padStart(2, '0'))
+                .replace(/HH/, hour.toString().padStart(2, '0'))
+                .replace(/mm/, minute.toString().padStart(2, '0'))
+                .replace(/ss/, second.toString().padStart(2, '0'))
+                .replace(/SSS/, millisecond.toString().padStart(3, '0'))
         }
     }
     return api
