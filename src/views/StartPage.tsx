@@ -34,10 +34,10 @@ export const StartPage = defineComponent({
                 </div>
                 <RouterLink to="/items/create">
                   <FloatButton name="add" />
-                  {overlayVisible.value && (
-                    <Overlay onClose={() => (overlayVisible.value = false)} />
-                  )}
                 </RouterLink>
+                {overlayVisible.value && (
+                  <Overlay onClose={() => (overlayVisible.value = false)} />
+                )}
               </>
             ),
           }}
