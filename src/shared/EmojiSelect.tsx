@@ -2,7 +2,13 @@ import { computed, defineComponent, ref, watch } from 'vue';
 import s from './EmojiSelect.module.scss';
 import { emojiList } from './emojiList';
 export const EmojiSelect = defineComponent({
-  setup: (props, context) => {
+  props: {
+    modelValue: {
+      type: String,
+      required: false,
+    },
+  },
+  setup: (props, { emit }) => {
     const table: [string, string[]][] = [
       [
         '表情',
@@ -75,23 +81,37 @@ export const EmojiSelect = defineComponent({
       ['运动', ['sport', 'game']],
     ];
     const refSelected = ref(0);
-
     const handleClick = (index: number) => {
       refSelected.value = index;
+    };
+    const onClickEmoji = (item: string) => {
+      emit('update:modelValue', item);
     };
     const emojis = computed(() => {
       const selectedItem = table[refSelected.value][1];
       return selectedItem.map((category) =>
         emojiList
           .find((item) => item[0] === category)?.[1]
-          .map((item) => <li>{item}</li>)
+          .map((item) => (
+            <li
+              class={item === props.modelValue ? s.selectedEmoji : ''}
+              onClick={() => onClickEmoji(item)}
+            >
+              {item}
+            </li>
+          ))
       );
     });
     return () => (
       <div class={s.emojiList}>
         <nav>
           {table.map((item, index) => (
-            <span onClick={() => handleClick(index)}>{item[0]}</span>
+            <span
+              class={index === refSelected.value ? s.selected : ''}
+              onClick={() => handleClick(index)}
+            >
+              {item[0]}
+            </span>
           ))}
         </nav>
         <ol>{emojis.value}</ol>
