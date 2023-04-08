@@ -2,7 +2,7 @@ import { defineComponent, ref } from 'vue';
 import s from './InputPad.module.scss';
 import { Icon } from '../../shared/Icon';
 import { DatePicker, Popup } from 'vant';
-import { time } from '../../shared/time';
+import { Time } from '../../shared/time';
 export const InputPad = defineComponent({
   setup: (props, context) => {
     const refAmount = ref('0');
@@ -109,7 +109,7 @@ export const InputPad = defineComponent({
     const now = new Date();
     const refDate = ref();
     const refShowPop = ref(false);
-    refDate.value = time(now).format().split('-');
+    refDate.value = new Time(now).format().split('-');
     const date = ref<Date>();
     const onConfirm = () => {
       refShowPop.value = false;
@@ -123,7 +123,7 @@ export const InputPad = defineComponent({
             <Icon name="date" class={s.icon} />
             <span>
               <span onClick={() => (refShowPop.value = !refShowPop.value)}>
-                {time(date.value || now).format()}
+                {new Time(date.value || now).format()}
               </span>
               <Popup v-model:show={refShowPop.value} position="bottom">
                 <DatePicker
