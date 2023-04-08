@@ -66,7 +66,11 @@ export const ItemCreate = defineComponent({
           default: () => (
             <>
               <div class={s.wrapper}>
-                <Tabs v-model:selected={refKind.value} class={s.tabs}>
+                <Tabs
+                  v-model:selected={refKind.value}
+                  class={s.tabs}
+                  classPrefix="create"
+                >
                   <Tab name="支出" class={s.tags_wrapper}>
                     <div class={s.tag}>
                       <div class={s.sign}>
