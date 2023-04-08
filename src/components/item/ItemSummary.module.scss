@@ -1,4 +1,6 @@
 .wrapper {
+  height: calc(100vh - 113px);
+  overflow-y: auto;
 }
 .total {
   background: var(--total-bg);
