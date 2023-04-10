@@ -15,3 +15,16 @@
     }
   }
 }
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  button {
+    border: none;
+    background-color: transparent;
+    padding: 8px 16px;
+    & + & {
+      margin-left: 16px;
+    }
+  }
+}

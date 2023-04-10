@@ -74,7 +74,6 @@ export const FormItem = defineComponent({
                   v-model={date.start}
                   title="选择年月日"
                   onConfirm={(date) => {
-                    console.log(date);
                     context.emit(
                       'update:modelValue',
                       date.selectedValues.join('-')
