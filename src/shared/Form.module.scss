@@ -7,6 +7,10 @@
 .formLabel {
   display: block;
 }
+.validationCodeButton {
+  margin-left: 16px;
+  flex-grow: 1;
+}
 .formItem {
   min-height: var(--input-min-height);
   max-width: 100%;
@@ -25,6 +29,10 @@
     &.error {
       border-color: var(--error-color);
     }
+  }
+  &.validationCodeInput {
+    width: 8em;
+    flex-grow: 0;
   }
 
   &_name {
