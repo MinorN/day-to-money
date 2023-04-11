@@ -4,8 +4,7 @@ import { Center } from '../shared/Center';
 import { FloatButton } from '../shared/FloatButton';
 import { Icon } from '../shared/Icon';
 import s from './StartPage.module.scss';
-import { Navbar } from '../shared/Navbar';
-import { Overlay } from '../shared/Overlay';
+import { OverlayIcon } from '../shared/Overlay';
 import { RouterLink } from 'vue-router';
 import { MainLayout } from '../layouts/MainLayout';
 export const StartPage = defineComponent({
@@ -19,9 +18,7 @@ export const StartPage = defineComponent({
         <MainLayout>
           {{
             title: () => '山竹记账',
-            icon: () => (
-              <Icon name="menu" class={s.navIcon} onClick={onClickMenu} />
-            ),
+            icon: () => <OverlayIcon />,
             default: () => (
               <>
                 <Center class={s.pig_wrapper}>
@@ -35,9 +32,6 @@ export const StartPage = defineComponent({
                 <RouterLink to="/items/create">
                   <FloatButton name="add" />
                 </RouterLink>
-                {overlayVisible.value && (
-                  <Overlay onClose={() => (overlayVisible.value = false)} />
-                )}
               </>
             ),
           }}

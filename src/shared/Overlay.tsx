@@ -1,4 +1,4 @@
-import { PropType, defineComponent } from 'vue';
+import { PropType, defineComponent, ref } from 'vue';
 import s from './Overlay.module.scss';
 import { Icon } from './Icon';
 import { RouterLink } from 'vue-router';
@@ -44,6 +44,23 @@ export const Overlay = defineComponent({
             </ul>
           </nav>
         </div>
+      </>
+    );
+  },
+});
+
+export const OverlayIcon = defineComponent({
+  setup: () => {
+    const overlayVisible = ref(false);
+    const onClickMenu = () => {
+      overlayVisible.value = !overlayVisible.value;
+    };
+    return () => (
+      <>
+        <Icon name="menu" class={s.icon} onClick={onClickMenu} />
+        {overlayVisible.value && (
+          <Overlay onClose={() => (overlayVisible.value = false)} />
+        )}
       </>
     );
   },
