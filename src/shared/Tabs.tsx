@@ -9,6 +9,7 @@ export const Tabs = defineComponent({
       type: String as PropType<string>,
     },
   },
+  emits: ['update:selected'],
   setup: (props, { slots, emit }) => {
     return () => {
       const array = slots.default?.();
