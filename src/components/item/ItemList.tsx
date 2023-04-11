@@ -95,7 +95,11 @@ export const ItemList = defineComponent({
                       />
                       <FormItem class={s.actions}>
                         <button type="submit">确认</button>
-                        <button>取消</button>
+                        <button
+                          onClick={() => (refOverlayVisible.value = false)}
+                        >
+                          取消
+                        </button>
                       </FormItem>
                     </Form>
                   </main>
